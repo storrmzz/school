@@ -1,0 +1,102 @@
+from turtle import *
+
+t = Turtle()
+t.speed(500)
+
+class Flaggen_Bestandteile: #Klasse für die einzelnen Formen, die in den Flaggen erhalten sind. Baue ich eine Flagge suche ich mir hier die passenden Objekte aus.
+    
+    def draw_viereck(self, length, heigth, pencolor, fillcolor):
+        self.length = length
+        self.heigth = heigth
+        self.pencolor = pencolor
+        self.fillcolor = fillcolor
+        t.pencolor(pencolor)
+        t.fillcolor(fillcolor)
+        t.begin_fill()
+        for i in range(0, 4):
+            if i % 2 == 0:
+                t.forward(length)
+                t.right(90)
+            else:
+                t.forward(heigth)
+                t.right(90)
+         
+        t.end_fill()
+        
+    def draw_dreieck(self, length, pencolor, fillcolor):
+        self.length = length
+        self.pencolor = pencolor
+        self.fillcolor = fillcolor
+        t.pencolor(pencolor)
+        t.fillcolor(fillcolor)
+        t.begin_fill()
+        for i in range(0, 3):
+            t.forward(length)
+            t.right(-120)
+            
+        t.end_fill()
+        
+        
+    def draw_kreis(self, radius, pencolor, fillcolor):
+        self.radius = radius
+        self.pencolor = pencolor
+        self.fillcolor = fillcolor
+        t.pencolor(pencolor)
+        t.fillcolor(fillcolor)
+        t.begin_fill()
+        t.circle(radius)
+        t.end_fill()
+    
+
+x = Flaggen_Bestandteile()
+
+def draw_deutschland():
+
+    x.draw_viereck(120, 20, "black", "black")
+    t.right(90)
+    t.forward(20)
+    t.left(90)
+    x.draw_viereck(120, 20, "red", "red")
+    t.right(90)
+    t.forward(20)
+    t.left(90)
+    x.draw_viereck(120, 20, "gold", "gold")
+    
+    
+def draw_bahamas():
+    x.draw_viereck(120, 25, "turquoise", "turquoise")
+    t.right(90)
+    t.forward(25)
+    t.left(90)
+    x.draw_viereck(120, 20, "yellow", "yellow")
+    t.right(90)
+    t.forward(20)
+    t.left(90)
+    x.draw_viereck(120, 25, "turquoise", "turquoise")
+    t.left(90)
+    t.forward(45)
+    t.right(180)
+    t.forward(10)
+    x.draw_dreieck(50, "black", "black")
+    
+def draw_laos():
+    x.draw_viereck(120, 25, "red", "red")
+    t.right(90)
+    t.forward(25)
+    t.left(90)
+    x.draw_viereck(120, 40, "blue", "blue")
+    t.right(90)
+    t.forward(40)
+    t.left(90)
+    x.draw_viereck(120, 25, "red", "red")
+    t.left(90)
+    t.pencolor("blue")
+    t.forward(8)
+    t.right(90)
+    t.forward(60)
+    x.draw_kreis(14, "white", "white")
+
+
+draw_laos()
+
+t.Done()
