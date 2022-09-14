@@ -2,6 +2,7 @@ from turtle import *
 
 t = Turtle()
 t.speed(500)
+t.hideturtle()
 
 class Flaggen_Bestandteile: #Klasse für die einzelnen Formen, die in den Flaggen erhalten sind. Baue ich eine Flagge suche ich mir hier die passenden Objekte aus.
     
@@ -46,6 +47,26 @@ class Flaggen_Bestandteile: #Klasse für die einzelnen Formen, die in den Flagge
         t.begin_fill()
         t.circle(radius)
         t.end_fill()
+        
+    def draw_stern(self, length, pencolor, fillcolor):
+        self.length = length
+        self.pencolor = pencolor
+        self.fillcolor = fillcolor
+        t.pencolor(pencolor)
+        t.fillcolor(fillcolor)
+        t.begin_fill()
+        t.forward(length)
+        t.right(144)
+        t.forward(length)
+        t.right(144)
+        t.forward(length)
+        t.right(144)
+        t.forward(length)
+        t.right(144)
+        t.forward(length)
+        
+        t.end_fill()
+    
     
 
 x = Flaggen_Bestandteile()
@@ -61,6 +82,54 @@ def draw_deutschland():
     t.forward(20)
     t.left(90)
     x.draw_viereck(120, 20, "gold", "gold")
+    
+def draw_niederlande():
+
+    x.draw_viereck(120, 20, "red", "red")
+    t.right(90)
+    t.forward(20)
+    t.left(90)
+    x.draw_viereck(120, 20, "white", "white")
+    t.right(90)
+    t.forward(20)
+    t.left(90)
+    x.draw_viereck(120, 20, "blue", "blue")
+    
+def draw_belgien():
+
+    x.draw_viereck(40, 80, "black", "black")
+    t.forward(40)
+    x.draw_viereck(40, 80, "gold", "gold")
+    t.forward(40)
+    x.draw_viereck(40, 80, "red", "red")
+    
+def draw_italien():
+
+    x.draw_viereck(40, 80, "green", "green")
+    t.forward(40)
+    x.draw_viereck(40, 80, "white", "white")
+    t.forward(40)
+    x.draw_viereck(40, 80, "red", "red")
+    
+def draw_schweden():
+    x.draw_viereck(120, 70, "blue", "blue")
+    t.forward(25)
+    x.draw_viereck(10, 70, "yellow", "yellow")
+    t.up()
+    t.backward(25)
+    t.sety(-30)
+    t.down()
+    x.draw_viereck(120, 10, "yellow", "yellow")
+    
+def draw_daenemark():
+    x.draw_viereck(120, 70, "red", "red")
+    t.forward(25)
+    x.draw_viereck(10, 70, "white", "white")
+    t.up()
+    t.backward(25)
+    t.sety(-30)
+    t.down()
+    x.draw_viereck(120, 10, "white", "white")
     
     
 def draw_bahamas():
@@ -79,6 +148,24 @@ def draw_bahamas():
     t.forward(10)
     x.draw_dreieck(50, "black", "black")
     
+def draw_sudan():
+    x.draw_viereck(120, 25, "red", "red")
+    t.right(90)
+    t.forward(25)
+    t.left(90)
+    x.draw_viereck(120, 20, "white", "white")
+    t.right(90)
+    t.forward(20)
+    t.left(90)
+    x.draw_viereck(120, 25, "black", "black")
+    t.up()
+    t.left(90)
+    t.forward(45)
+    t.right(180)
+    t.forward(10)
+    t.down()
+    x.draw_dreieck(50, "green", "green")
+    
 def draw_laos():
     x.draw_viereck(120, 25, "red", "red")
     t.right(90)
@@ -95,8 +182,36 @@ def draw_laos():
     t.right(90)
     t.forward(60)
     x.draw_kreis(14, "white", "white")
+    
+def draw_surinam():
+    x.draw_viereck(120, 20, "green", "green")
+    t.right(90)
+    t.forward(20)
+    t.left(90)
+    x.draw_viereck(120, 5, "white", "white")
+    t.right(90)
+    t.forward(5)
+    t.left(90)
+    x.draw_viereck(120, 30, "red", "red")
+    t.right(90)
+    t.forward(30)
+    t.left(90)
+    x.draw_viereck(120, 5, "white", "white")
+    t.right(90)
+    t.forward(5)
+    t.left(90)
+    x.draw_viereck(120, 20, "green", "green")
+    t.up()
+    t.left(90)
+    t.forward(24)
+    t.right(90)
+    t.forward(45)
+    t.down()
+    x.draw_stern(30, "yellow", "yellow")
+    
 
 
-draw_laos()
+draw_deutschland() # Hier den Funktionsnamen der Flagge, die man haben will, einsetzten(draw_deutschland, draw_niederlande,
+             # draw_belgien, draw_italien, draw_daenemark, draw_schweden, draw_bahamas, draw_sudan, draw_laos, draw_surinam).
 
-t.Done()
+done()
