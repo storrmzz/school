@@ -135,14 +135,16 @@ class App:
         
     def passwort_change(self):
         uid = uid = self.entry.get()
+        lines = []
         new_pw = simpledialog.askstring("Neues Passwort", "Wie soll dein neues Passwort lauten?", parent=root)
-        f = open(data_path + str(uid) + ".txt", "r+")
-        lines = f.readlines()
-        lines[2] = new_pw
-        with open(data_path + str(uid) + ".txt", "r+") as f:
-            f.writelines(lines)
-            f.close()
-            
+        with open(data_path + str(uid) + ".txt", "r") as f:
+            lines = f.readlines()
+        with open(data_path + str(uid) + ".txt", "w") as f:
+            for number, line in enumerate(lines):
+                if number not in [2]:
+                    f.write(line)
+                else:
+                    f.write(new_pw)
 app = App(root)
 
 root.mainloop()
